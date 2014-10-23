@@ -36,9 +36,9 @@ function run(err) {
   }
 
   var harness = mocha;
-  if (harness.checkLeaks) {
-    harness.checkLeaks();
-  }
+  // if (harness.checkLeaks) {
+  //   harness.checkLeaks();
+  // }
 
   var suite = harness.suite;
   if (suite.suites.length === 0 && suite.tests.length === 0) {
@@ -79,7 +79,7 @@ function run(err) {
     }
 
     reporter.test_end({
-      name: test.title,
+      name: getTitle(test),
       passed: test.state === 'passed',
       duration: test.duration
     });
